@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const EditUser = () => {
   const [name, setName] = useState("");
@@ -68,7 +68,7 @@ const EditUser = () => {
               value={gender}
               onChange={(e) => setGender(e.target.value)}
             >
-              <div class="flex items-center">
+              <div className="flex items-center">
                 <input
                   type="radio"
                   id="Male"
@@ -76,7 +76,7 @@ const EditUser = () => {
                   className="mr-2"
                   value={"Male"}
                 />
-                <label for="Male">Male</label>
+                <label htmlFor="Male">Male</label>
               </div>
               <div>
                 <input
@@ -86,7 +86,7 @@ const EditUser = () => {
                   className="mr-2"
                   value={"Female"}
                 />
-                <label for="Female">Female</label>
+                <label htmlFor="Female">Female</label>
               </div>
             </div>
           </div>
@@ -97,12 +97,12 @@ const EditUser = () => {
             >
               Simpan
             </button>
-            <button
-              onClick={() => naviget("/")}
-              className="w-28 py-3 font-bold text-white bg-red-500 hover:bg-red-700 rounded-lg border-red-500 hover:shadow"
+            <Link
+              to="/"
+              className=" text-center w-28 py-3 font-bold text-white bg-red-500 hover:bg-red-700 rounded-lg border-red-500 hover:shadow"
             >
               Batal
-            </button>
+            </Link>
           </div>
         </div>
       </form>

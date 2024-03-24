@@ -55,7 +55,7 @@ const AddUser = () => {
               value={gender}
               onChange={(e) => setGender(e.target.value)}
             >
-              <div class="flex items-center">
+              <div className="flex items-center">
                 <input
                   type="radio"
                   id="Male"
@@ -63,7 +63,7 @@ const AddUser = () => {
                   className="mr-2"
                   value={"Male"}
                 />
-                <label for="Male">Male</label>
+                <label htmlFor="Male">Male</label>
               </div>
               <div>
                 <input
@@ -73,7 +73,7 @@ const AddUser = () => {
                   className="mr-2"
                   value={"Female"}
                 />
-                <label for="Female">Female</label>
+                <label htmlFor="Female">Female</label>
               </div>
             </div>
           </div>
