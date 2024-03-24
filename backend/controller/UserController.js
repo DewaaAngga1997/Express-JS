@@ -1,5 +1,6 @@
 import User from "../models/UserModel.js";
 
+//GET ALL USERS
 export const getUser = async (req, res) => {
   try {
     const response = await User.findAll();
@@ -9,6 +10,7 @@ export const getUser = async (req, res) => {
   }
 };
 
+//GET USER BY ID
 export const getUserbyId = async (req, res) => {
   try {
     const response = await User.findOne({
@@ -22,6 +24,7 @@ export const getUserbyId = async (req, res) => {
   }
 };
 
+//CREATE USER
 export const createUser = async (req, res) => {
   try {
     await User.create(req.body);
@@ -31,6 +34,7 @@ export const createUser = async (req, res) => {
   }
 };
 
+//UPDATE USER
 export const updateUser = async (req, res) => {
   try {
     await User.update(req.body, {
@@ -44,6 +48,7 @@ export const updateUser = async (req, res) => {
   }
 };
 
+//DELETE USER
 export const deleteUser = async (req, res) => {
   try {
     await User.destroy({

@@ -2,16 +2,16 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserList from "./component/UserList";
 import AddUser from "./component/AddUser";
+import EditUser from "./component/EditUser";
 
 export default function App() {
   return (
-    <div className="container">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<UserList />} />
-          <Route path="/add" element={<AddUser />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<UserList />} />
+        <Route path="/add" element={<AddUser />} />
+        <Route path="/edit/:id" element={<EditUser />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

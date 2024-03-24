@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddUser = () => {
+const EditUser = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const naviget = useNavigate();
+  const { id } = useParams();
 
-  const saveUser = async (e) => {
+  useEffect(() => {
+    getUserById();
+  }, []);
+
+  const updateUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/users", {
+      await axios.patch(`http://localhost:5000/users/${id}`, {
         name,
         email,
         gender,
@@ -22,10 +27,18 @@ const AddUser = () => {
     }
   };
 
+  //code untuk mengambil singgle data
+  const getUserById = async () => {
+    const response = await axios.get(`http://localhost:5000/users/${id}`);
+    setName(response.data.name);
+    setEmail(response.data.email);
+    setGender(response.data.gender);
+  };
+
   return (
     <div className="max-w-lg mx-auto my-20 bg-white p-8 rounded-xl shadow shadow-slate-300">
       <h1 className="text-2xl font-bold text-center">Add User</h1>
-      <form className="my-10" onSubmit={saveUser}>
+      <form className="my-10" onSubmit={updateUser}>
         <div className="flex flex-col">
           <div className="mb-5">
             <label className="font-bold text-slate-700">Name</label>
@@ -84,12 +97,12 @@ const AddUser = () => {
             >
               Simpan
             </button>
-            <Link
-              to="/"
-              className=" text-center w-28 py-3 font-bold text-white bg-red-500 hover:bg-red-700 rounded-lg border-red-500 hover:shadow"
+            <button
+              onClick={() => naviget("/")}
+              className="w-28 py-3 font-bold text-white bg-red-500 hover:bg-red-700 rounded-lg border-red-500 hover:shadow"
             >
               Batal
-            </Link>
+            </button>
           </div>
         </div>
       </form>
@@ -97,4 +110,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default EditUser;
