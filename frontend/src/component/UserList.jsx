@@ -30,12 +30,12 @@ const UserList = () => {
   return (
     <div className="mt-20 flex flex-col container ">
       <div className="w-full">
-        <div className="flex justify-end mr-48">
+        <div className="flex justify-end ">
           <Link
             to="/add"
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mx-2"
           >
-            Tambah
+            + Tambah
           </Link>
         </div>
         <div className="relative shadow rounded-lg mt-3">

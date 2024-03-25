@@ -13,6 +13,7 @@ const EditUser = () => {
     getUserById();
   }, []);
 
+  //code untuk edit user
   const updateUser = async (e) => {
     e.preventDefault();
     try {
